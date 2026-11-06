@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>예다움(禮茶움) | 일본풍 한방 화과자 프레젠테이션 — 용안육 모찌 & 쌍화탕 젤리 모찌</title>
+  <!-- Google Fonts: Noto Serif KR, Gowun Batang, Shippori Mincho -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Serif+KR:wght@400;600;700;900&family=Shippori+Mincho:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sakura-light: #fff5f7;
+      --sakura-pink: #ffb7c5;
+      --sakura-deep: #e87a90;
+      --crimson-jp: #b92b27;
+      --crimson-dark: #7a1c18;
+      --gold-jp: #c59b27;
+      --gold-light: #f3e5ab;
+      --washi-bg: #fcf8f2;
+      --washi-card: rgba(255, 252, 247, 0.92);
+      --wood-dark: #2c1e18;
+      --wood-mid: #4a332a;
+      --matcha: #5c7a47;
+      --amber-herb: #8c4a27;
+      --shadow-soft: 0 14px 40px rgba(74, 51, 42, 0.14);
+      --shadow-glow: 0 8px 25px rgba(232, 122, 144, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Gowun Batang', 'Noto Serif KR', serif;
+      background-color: var(--washi-bg);
+      color: var(--wood-dark);
+      user-select: none;
+    }
+
+    /* Japanese Traditional Seigaiha & Washi Background Pattern */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-color: #fdf8f3;
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(255, 183, 197, 0.32) 0%, transparent 45%),
+        radial-gradient(circle at 85% 15%, rgba(255, 205, 215, 0.38) 0%, transparent 50%),
+        radial-gradient(circle at 50% 85%, rgba(212, 175, 55, 0.12) 0%, transparent 50%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cg fill='none' stroke='%23e87a90' stroke-width='0.7' stroke-opacity='0.18'%3E%3Ccircle cx='40' cy='40' r='36'/%3E%3Ccircle cx='40' cy='40' r='28'/%3E%3Ccircle cx='40' cy='40' r='20'/%3E%3Ccircle cx='40' cy='40' r='12'/%3E%3Ccircle cx='0' cy='40' r='36'/%3E%3Ccircle cx='0' cy='40' r='28'/%3E%3Ccircle cx='0' cy='40' r='20'/%3E%3Ccircle cx='0' cy='40' r='12'/%3E%3Ccircle cx='80' cy='40' r='36'/%3E%3Ccircle cx='80' cy='40' r='28'/%3E%3Ccircle cx='80' cy='40' r='20'/%3E%3Ccircle cx='80' cy='40' r='12'/%3E%3Ccircle cx='20' cy='20' r='36'/%3E%3Ccircle cx='20' cy='20' r='28'/%3E%3Ccircle cx='20' cy='20' r='20'/%3E%3Ccircle cx='20' cy='20' r='12'/%3E%3Ccircle cx='60' cy='20' r='36'/%3E%3Ccircle cx='60' cy='20' r='28'/%3E%3Ccircle cx='60' cy='20' r='20'/%3E%3Ccircle cx='60' cy='20' r='12'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    /* Falling Sakura Canvas */
+    #sakura-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 30;
+      pointer-events: none;
+    }
+
+    /* Corner Animated Sakura Trees & Japanese Lanterns */
+    .sakura-tree-left,
+    .sakura-tree-right {
+      position: fixed;
+      top: -15px;
+      z-index: 15;
+      pointer-events: none;
+      filter: drop-shadow(0 8px 16px rgba(185, 43, 39, 0.15));
+      transform-origin: top left;
+      animation: treeSwayLeft 7s ease-in-out infinite alternate;
+    }
+    .sakura-tree-left {
+      left: -20px;
+      width: 390px;
+      height: 340px;
+    }
+    .sakura-tree-right {
+      right: -20px;
+      width: 370px;
+      height: 310px;
+      transform-origin: top right;
+      animation: treeSwayRight 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes treeSwayLeft {
+      0% { transform: rotate(0deg) scale(1); }
+      100% { transform: rotate(2.2deg) scale(1.02); }
+    }
+    @keyframes treeSwayRight {
+      0% { transform: rotate(0deg) scale(1); }
+      100% { transform: rotate(-2.5deg) scale(1.02); }
+    }
+
+    /* Hanging Chochin Lanterns */
+    .lantern-box {
+      position: fixed;
+      top: 0;
+      z-index: 20;
+      pointer-events: none;
+      display: flex;
+      gap: 18px;
+    }
+    .lantern-left { left: 260px; }
+    .lantern-right { right: 260px; }
+
+    .chochin {
+      transform-origin: top center;
+      animation: lanternSwing 4.2s ease-in-out infinite alternate;
+      filter: drop-shadow(0 0 14px rgba(255, 140, 100, 0.55));
+    }
+    .chochin:nth-child(2) {
+      animation-duration: 5.1s;
+      animation-delay: -1.5s;
+    }
+    @keyframes lanternSwing {
+      0% { transform: rotate(-4deg); }
+      100% { transform: rotate(4deg); }
+    }
+
+    /* Japanese Traditional Frame Border */
+    .jp-frame {
+      position: fixed;
+      inset: 14px;
+      border: 2px solid rgba(185, 43, 39, 0.28);
+      border-radius: 16px;
+      z-index: 25;
+      pointer-events: none;
+    }
+    .jp-frame::before {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border: 1px solid rgba(197, 155, 39, 0.42);
+      border-radius: 12px;
+    }
+
+    /* Top Header Navigation Bar */
+    .top-nav {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(44, 30, 24, 0.88);
+      backdrop-filter: blur(10px);
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1.5px solid var(--gold-jp);
+      box-shadow: 0 8px 28px rgba(44, 30, 24, 0.25);
+    }
+
+    .club-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #fff;
+      font-family: 'Noto Serif KR', serif;
+      font-weight: 900;
+      font-size: 0.95rem;
+      padding-right: 12px;
+      border-right: 1px solid rgba(255, 183, 197, 0.35);
+      letter-spacing: 1px;
+    }
+
+    .hanko-stamp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      background: var(--crimson-jp);
+      color: #fff;
+      border: 1.5px solid #ffccd5;
+      border-radius: 5px;
+      font-size: 0.78rem;
+      font-weight: 900;
+      box-shadow: 0 0 8px rgba(185, 43, 39, 0.6);
+      animation: pulseStamp 2.5s infinite ease-in-out;
+    }
+
+    @keyframes pulseStamp {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .nav-tab {
+      background: transparent;
+      border: none;
+      color: #f3e5dc;
+      font-family: 'Gowun Batang', serif;
+      font-size: 0.82rem;
+      padding: 5px 11px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+    .nav-tab:hover {
+      background: rgba(255, 183, 197, 0.2);
+      color: var(--sakura-pink);
+    }
+    .nav-tab.active {
+      background: linear-gradient(135deg, var(--sakura-deep), var(--crimson-jp));
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 3px 10px rgba(232, 122, 144, 0.45);
+    }
+
+    .sakura-boost-btn {
+      margin-left: 6px;
+      background: rgba(255, 183, 197, 0.2);
+      border: 1px solid var(--sakura-pink);
+      color: #ffe3e8;
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 0.78rem;
+      font-family: 'Gowun Batang', serif;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.25s;
+    }
+    .sakura-boost-btn:hover {
+      background: var(--sakura-pink);
+      color: var(--wood-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Slide Container */
+    .slides-viewport {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      z-index: 10;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 86px 56px 68px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(28px) scale(0.98);
+      transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .slide-inner {
+      width: 100%;
+      max-width: 1280px;
+      height: 100%;
+      max-height: 760px;
+      background: var(--washi-card);
+      border: 2px solid rgba(197, 155, 39, 0.38);
+      border-radius: 24px;
+      box-shadow: var(--shadow-soft);
+      padding: 32px 42px;
+      position: relative;
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Custom Scrollbar inside slide if needed on smaller screens */
+    .slide-inner::-webkit-scrollbar {
+      width: 6px;
+    }
+    .slide-inner::-webkit-scrollbar-thumb {
+      background: var(--sakura-pink);
+      border-radius: 99px;
+    }
+
+    /* Decorative Corner Knots inside Slide */
+    .slide-inner::before,
+    .slide-inner::after {
+      content: "❀";
+      position: absolute;
+      font-size: 1.4rem;
+      color: var(--sakura-deep);
+      opacity: 0.55;
+      pointer-events: none;
+    }
+    .slide-inner::before { top: 12px; left: 16px; }
+    .slide-inner::after { bottom: 12px; right: 16px; }
+
+    /* Animated Icons System */
+    .anim-float {
+      display: inline-block;
+      animation: animFloat 3s ease-in-out infinite;
+    }
+    .anim-bounce {
+      display: inline-block;
+      animation: animBounce 2.2s ease-in-out infinite;
+    }
+    .anim-spin-slow {
+      display: inline-block;
+      animation: animSpin 9s linear infinite;
+    }
+    .anim-wiggle {
+      display: inline-block;
+      animation: animWiggle 2.4s ease-in-out infinite;
+    }
+    .anim-pulse {
+      display: inline-block;
+      animation: animPulse 2s ease-in-out infinite;
+    }
+    .anim-steam {
+      display: inline-block;
+      animation: animSteam 2.6s ease-in-out infinite;
+    }
+
+    @keyframes animFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes animBounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      40% { transform: translateY(-10px) scale(1.08); }
+      60% { transform: translateY(-4px) scale(1.03); }
+    }
+    @keyframes animSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes animWiggle {
+      0%, 100% { transform: rotate(-8deg); }
+      50% { transform: rotate(8deg); }
+    }
+    @keyframes animPulse {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(232,122,144,0)); }
+      50% { transform: scale(1.14); filter: drop-shadow(0 4px 10px rgba(232,122,144,0.5)); }
+    }
+    @keyframes animSteam {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.85; }
+      50% { transform: translateY(-7px) scale(1.1); opacity: 1; }
+    }
+
+    /* Slide Header Components */
+    .slide-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px dashed rgba(185, 43, 39, 0.22);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }
+    .slide-title-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .jp-badge {
+      background: linear-gradient(135deg, var(--crimson-jp), var(--crimson-dark));
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      border: 1px solid var(--gold-light);
+      box-shadow: 0 4px 12px rgba(185, 43, 39, 0.25);
+    }
+    .slide-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: var(--wood-dark);
+      letter-spacing: -0.5px;
+    }
+    .slide-subtitle-jp {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 0.95rem;
+      color: var(--crimson-jp);
+      font-weight: 700;
+      background: var(--sakura-light);
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--sakura-pink);
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      align-items: center;
+      flex: 1;
+    }
+    .grid-2-equal {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+      flex: 1;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: stretch;
+      flex: 1;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    /* Cards & Boxes */
+    .washi-box {
+      background: #fffdf9;
+      border: 1.5px solid rgba(197, 155, 39, 0.35);
+      border-radius: 18px;
+      padding: 20px 22px;
+      box-shadow: 0 6px 20px rgba(74, 51, 42, 0.06);
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .washi-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(232, 122, 144, 0.2);
+    }
+
+    .washi-box.pink-accent {
+      background: linear-gradient(180deg, #fff9fb 0%, #fffdf9 100%);
+      border-color: var(--sakura-pink);
+    }
+    .washi-box.amber-accent {
+      background: linear-gradient(180deg, #fdf8f2 0%, #fffdf9 100%);
+      border-color: rgba(140, 74, 39, 0.4);
+    }
+
+    /* Image Frame with Japanese Aesthetic */
+    .photo-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 3px solid var(--gold-jp);
+      box-shadow: 0 14px 32px rgba(44, 30, 24, 0.22);
+      background: #2c1e18;
+      height: 100%;
+      min-height: 290px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .photo-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    .photo-card:hover img {
+      transform: scale(1.05);
+    }
+    .photo-caption {
+      position: relative;
+      z-index: 2;
+      background: linear-gradient(to top, rgba(30, 18, 14, 0.92) 0%, rgba(30, 18, 14, 0.55) 75%, transparent 100%);
+      color: #fff;
+      padding: 26px 20px 16px;
+    }
+    .photo-caption h4 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 1.2rem;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .photo-caption p {
+      font-size: 0.88rem;
+      color: #f7e6ea;
+      line-height: 1.45;
+    }
+
+    /* Seal / Stamp Tag on Image */
+    .seal-tag {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 3;
+      background: rgba(185, 43, 39, 0.92);
+      color: #fff;
+      border: 1.5px solid var(--gold-light);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 800;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    /* Icon Feature Pill */
+    .icon-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #fff0f3, #ffd6e0);
+      border: 1.5px solid var(--sakura-deep);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.65rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(232, 122, 144, 0.25);
+    }
+    .icon-circle.amber {
+      background: linear-gradient(135deg, #fbf2e6, #f0d5b8);
+      border-color: var(--amber-herb);
+      box-shadow: 0 4px 12px rgba(140, 74, 39, 0.2);
+    }
+
+    /* Recipe Step Cards */
+    .step-card {
+      background: #fffdf9;
+      border: 1.5px solid rgba(232, 122, 144, 0.45);
+      border-radius: 16px;
+      padding: 15px 16px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+    .step-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--crimson-jp);
+      box-shadow: 0 10px 24px rgba(185, 43, 39, 0.14);
+    }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 800;
+      font-size: 0.8rem;
+      color: #fff;
+      background: var(--crimson-jp);
+      padding: 3px 10px;
+      border-radius: 99px;
+      width: fit-content;
+    }
+    .step-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--wood-dark);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .step-desc {
+      font-size: 0.88rem;
+      line-height: 1.52;
+      color: #4a3730;
+    }
+    .pro-tip-banner {
+      background: linear-gradient(90deg, rgba(185, 43, 39, 0.09), rgba(255, 183, 197, 0.22));
+      border-left: 4px solid var(--crimson-jp);
+      border-radius: 10px;
+      padding: 11px 16px;
+      font-size: 0.88rem;
+      line-height: 1.48;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Ingredient Table Styling */
+    .jp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(197, 155, 39, 0.4);
+    }
+    .jp-table th {
+      background: linear-gradient(90deg, var(--wood-dark), var(--wood-mid));
+      color: var(--gold-light);
+      font-family: 'Noto Serif KR', serif;
+      font-weight: 700;
+      padding: 9px 12px;
+      text-align: left;
+    }
+    .jp-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid rgba(197, 155, 39, 0.2);
+      color: var(--wood-dark);
+    }
+    .jp-table tr:last-child td {
+      border-bottom: none;
+    }
+    .jp-table tr:nth-child(even) {
+      background: #fdf9f4;
+    }
+    .badge-qty {
+      background: var(--sakura-light);
+      color: var(--crimson-jp);
+      border: 1px solid var(--sakura-pink);
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      display: inline-block;
+    }
+
+    /* Cross-section Interactive Diagram */
+    .mochi-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      padding: 12px;
+    }
+    .layer-tag {
+      font-size: 0.82rem;
+      background: #fff;
+      border: 1px solid var(--gold-jp);
+      padding: 5px 10px;
+      border-radius: 8px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+    }
+
+    /* Bottom Controls */
+    .bottom-bar {
+      position: fixed;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(44, 30, 24, 0.9);
+      backdrop-filter: blur(8px);
+      padding: 8px 22px;
+      border-radius: 999px;
+      border: 1.5px solid var(--gold-jp);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(44, 30, 24, 0.3);
+    }
+    .ctrl-btn {
+      background: rgba(255, 183, 197, 0.18);
+      border: 1px solid var(--sakura-pink);
+      color: #fff;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    .ctrl-btn:hover {
+      background: var(--sakura-deep);
+      transform: scale(1.1);
+    }
+    .slide-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .dot.active {
+      width: 28px;
+      border-radius: 99px;
+      background: var(--sakura-pink);
+      box-shadow: 0 0 10px var(--sakura-pink);
+    }
+    .slide-counter {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 0.88rem;
+      color: var(--gold-light);
+      min-width: 52px;
+      text-align: center;
+    }
+
+    /* Interactive Checklist */
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-size: 0.86rem;
+    }
+    .check-item:hover {
+      background: var(--sakura-light);
+    }
+    .check-item input[type="checkbox"] {
+      accent-color: var(--crimson-jp);
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+    .check-item.checked span {
+      text-decoration: line-through;
+      color: #9e8a82;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .grid-2, .grid-2-equal, .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+      }
+      .slide {
+        padding: 80px 20px 70px;
+      }
+      .sakura-tree-left, .sakura-tree-right {
+        width: 220px;
+        opacity: 0.7;
+      }
+      .lantern-box {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Real-time Falling Sakura Petals Canvas -->
+  <canvas id="sakura-canvas"></canvas>
+
+  <!-- Traditional Japanese Double Border Frame -->
+  <div class="jp-frame"></div>
+
+  <!-- Left Animated Blooming Sakura Tree Branch SVG -->
+  <svg class="sakura-tree-left" viewBox="0 0 420 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Tree Trunk & Branches -->
+    <path d="M-10 20 C70 35, 130 65, 210 110 C260 135, 310 140, 365 130" stroke="#4A2E25" stroke-width="14" stroke-linecap="round"/>
+    <path d="M80 45 C120 95, 165 145, 225 190 C255 212, 290 225, 325 230" stroke="#4A2E25" stroke-width="9" stroke-linecap="round"/>
+    <path d="M150 80 C190 60, 245 55, 310 70" stroke="#5C3A2E" stroke-width="7" stroke-linecap="round"/>
+    <path d="M40 30 C60 100, 85 160, 125 225" stroke="#5C3A2E" stroke-width="8" stroke-linecap="round"/>
+    <!-- Blossom Clusters -->
+    <g opacity="0.95">
+      <circle cx="95" cy="55" r="38" fill="#FFD4DF"/>
+      <circle cx="155" cy="82" r="44" fill="#FFB7C5"/>
+      <circle cx="225" cy="108" r="48" fill="#FFC6D2"/>
+      <circle cx="295" cy="80" r="36" fill="#FFDCE5"/>
+      <circle cx="345" cy="128" r="40" fill="#FFB7C5"/>
+      <circle cx="215" cy="180" r="42" fill="#FFD0DC"/>
+      <circle cx="285" cy="215" r="36" fill="#FFB7C5"/>
+      <circle cx="115" cy="195" r="35" fill="#FFDCE5"/>
+      <circle cx="55" cy="120" r="40" fill="#FFC2CE"/>
+    </g>
+    <!-- Detailed Five-Petal Sakura Flowers -->
+    <g fill="#E87A90">
+      <circle cx="155" cy="82" r="6"/><circle cx="225" cy="108" r="7"/><circle cx="345" cy="128" r="5"/>
+      <circle cx="215" cy="180" r="6"/><circle cx="95" cy="55" r="5"/><circle cx="285" cy="215" r="5"/>
+      <circle cx="115" cy="195" r="5"/><circle cx="295" cy="80" r="5"/>
+    </g>
+    <g fill="#FFF5F7">
+      <circle cx="135" cy="68" r="10"/><circle cx="178" cy="95" r="12"/><circle cx="245" cy="92" r="11"/>
+      <circle cx="320" cy="115" r="9"/><circle cx="195" cy="165" r="10"/><circle cx="265" cy="200" r="9"/>
+      <circle cx="80" cy="140" r="10"/><circle cx="130" cy="180" r="8"/>
+    </g>
+  </svg>
+
+  <!-- Right Animated Blooming Sakura Tree Branch SVG -->
+  <svg class="sakura-tree-right" viewBox="0 0 420 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g transform="scale(-1, 1) translate(-420, 0)">
+      <path d="M-10 15 C65 30, 140 60, 220 105 C270 130, 320 135, 370 120" stroke="#4A2E25" stroke-width="13" stroke-linecap="round"/>
+      <path d="M90 50 C130 100, 175 150, 235 195" stroke="#4A2E25" stroke-width="8.5" stroke-linecap="round"/>
+      <path d="M160 80 C200 60, 255 50, 320 65" stroke="#5C3A2E" stroke-width="6.5" stroke-linecap="round"/>
+      <g opacity="0.95">
+        <circle cx="90" cy="55" r="36" fill="#FFD4DF"/>
+        <circle cx="165" cy="85" r="45" fill="#FFB7C5"/>
+        <circle cx="235" cy="110" r="44" fill="#FFC6D2"/>
+        <circle cx="305" cy="75" r="34" fill="#FFDCE5"/>
+        <circle cx="350" cy="120" r="38" fill="#FFB7C5"/>
+        <circle cx="225" cy="185" r="38" fill="#FFD0DC"/>
+      </g>
+      <g fill="#E87A90">
+        <circle cx="165" cy="85" r="6"/><circle cx="235" cy="110" r="6"/><circle cx="350" cy="120" r="5"/>
+        <circle cx="225" cy="185" r="6"/><circle cx="90" cy="55" r="5"/>
+      </g>
+    </g>
+  </svg>
+
+  <!-- Traditional Japanese Hanging Chochin Lanterns -->
+  <div class="lantern-box lantern-left">
+    <svg class="chochin" width="54" height="120" viewBox="0 0 54 120">
+      <line x1="27" y1="0" x2="27" y2="22" stroke="#4A2E25" stroke-width="2.5"/>
+      <rect x="16" y="20" width="22" height="6" rx="2" fill="#2C1E18"/>
+      <ellipse cx="27" cy="54" rx="23" ry="30" fill="url(#lanternGrad)"/>
+      <path d="M6 44 Q27 40 48 44 M5 54 Q27 50 49 54 M6 64 Q27 60 48 64" stroke="#8C1D18" stroke-width="1.2" fill="none" opacity="0.5"/>
+      <text x="27" y="59" text-anchor="middle" fill="#FFF8E7" font-family="Shippori Mincho, serif" font-size="13" font-weight="bold">茶</text>
+      <rect x="17" y="81" width="20" height="6" rx="2" fill="#2C1E18"/>
+      <line x1="24" y1="87" x2="22" y2="108" stroke="#C59B27" stroke-width="2"/>
+      <line x1="27" y1="87" x2="27" y2="112" stroke="#B92B27" stroke-width="2"/>
+      <line x1="30" y1="87" x2="32" y2="108" stroke="#C59B27" stroke-width="2"/>
+      <defs>
+        <radialGradient id="lanternGrad" cx="50%" cy="50%" r="55%">
+          <stop offset="0%" stop-color="#FFE082"/>
+          <stop offset="45%" stop-color="#FF6F61"/>
+          <stop offset="100%" stop-color="#B92B27"/>
+        </radialGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="lantern-box lantern-right">
+    <svg class="chochin" width="54" height="120" viewBox="0 0 54 120">
+      <line x1="27" y1="0" x2="27" y2="22" stroke="#4A2E25" stroke-width="2.5"/>
+      <rect x="16" y="20" width="22" height="6" rx="2" fill="#2C1E18"/>
+      <ellipse cx="27" cy="54" rx="23" ry="30" fill="url(#lanternGrad)"/>
+      <path d="M6 44 Q27 40 48 44 M5 54 Q27 50 49 54 M6 64 Q27 60 48 64" stroke="#8C1D18" stroke-width="1.2" fill="none" opacity="0.5"/>
+      <text x="27" y="59" text-anchor="middle" fill="#FFF8E7" font-family="Shippori Mincho, serif" font-size="13" font-weight="bold">和</text>
+      <rect x="17" y="81" width="20" height="6" rx="2" fill="#2C1E18"/>
+      <line x1="24" y1="87" x2="22" y2="108" stroke="#C59B27" stroke-width="2"/>
+      <line x1="27" y1="87" x2="27" y2="112" stroke="#B92B27" stroke-width="2"/>
+      <line x1="30" y1="87" x2="32" y2="108" stroke="#C59B27" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <nav class="top-nav">
+    <div class="club-logo">
+      <span class="hanko-stamp">禮</span>
+      <span>예다움 동아리</span>
+    </div>
+    <div class="nav-tabs" id="nav-tabs">
+      <button class="nav-tab active" onclick="goToSlide(0)">1. 표지</button>
+      <button class="nav-tab" onclick="goToSlide(1)">2. 기획 배경</button>
+      <button class="nav-tab" onclick="goToSlide(2)">3. 용안육 모찌</button>
+      <button class="nav-tab" onclick="goToSlide(3)">4. 용안육 조리법</button>
+      <button class="nav-tab" onclick="goToSlide(4)">5. 쌍화탕 젤리 모찌</button>
+      <button class="nav-tab" onclick="goToSlide(5)">6. 쌍화탕 조리법</button>
+      <button class="nav-tab" onclick="goToSlide(6)">7. 만능 크림치즈&떡피</button>
+      <button class="nav-tab" onclick="goToSlide(7)">8. 6인분 계량&장보기</button>
+    </div>
+    <button class="sakura-boost-btn" onclick="burstSakura()">
+      <span class="anim-spin-slow">🌸</span> 벚꽃 비 내리기
+    </button>
+  </nav>
+
+  <!-- Main Presentation Slides Viewport -->
+  <main class="slides-viewport">
+
+    <!-- ==================== SLIDE 1: COVER ==================== -->
+    <section class="slide active" data-index="0">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <span class="jp-badge">和漢 菓子の美 · 한방 화과자 프로젝트</span>
+            <h2 class="slide-title">동아리 「예다움」 일본풍 한약재 디저트 발표</h2>
+          </div>
+          <span class="slide-subtitle-jp"><span class="anim-spin-slow">🌸</span> 春の和菓子 · 벚꽃 다과회 컨셉</span>
+        </div>
+
+        <div class="grid-2">
+          <!-- Left Column: Hero Intro & Animated Concept Icons -->
+          <div style="display:flex; flex-direction:column; gap:18px;">
+            <div class="washi-box pink-accent" style="padding:26px;">
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+                <span class="anim-bounce" style="font-size:1.8rem;">🍡</span>
+                <span style="color:var(--crimson-jp); font-weight:700; font-size:0.95rem; letter-spacing:1px;">
+                  TRADITIONAL HERBS × JAPANESE DAIFUKU MOCHI
+                </span>
+              </div>
+              <h1 style="font-family:'Noto Serif KR', serif; font-size:2.35rem; line-height:1.28; color:var(--wood-dark); margin-bottom:14px;">
+                향긋한 벚꽃 아래 피어난<br/>
+                <span style="color:var(--crimson-jp); background:linear-gradient(transparent 65%, #ffd6e0 65%);">두 가지 한방 다이후쿠 모찌</span>
+              </h1>
+              <p style="font-size:1rem; line-height:1.65; color:#4a332a;">
+                몸을 보하는 귀한 한약재 <strong>‘용안육(龍眼肉)’</strong>과 <strong>‘쌍화탕(雙和湯)’</strong>을 
+                일본 전통 화과자 <strong>다이후쿠 모찌(大福餅)</strong>에 담아냈습니다. 
+                쓴 한약이라는 편견을 깨고 누구나 반할 만한 탱글·쫀득·크리미한 디저트를 선보입니다.
+              </p>
+            </div>
+
+            <!-- Two Signature Dessert Preview Pills with Moving Icons -->
+            <div class="grid-2-equal" style="gap:14px;">
+              <div class="washi-box" style="display:flex; align-items:center; gap:14px; cursor:pointer;" onclick="goToSlide(2)">
+                <div class="icon-circle anim-float">🍋</div>
+                <div>
+                  <div style="font-size:0.78rem; color:var(--crimson-jp); font-weight:700;">MENU 01 · 6인분</div>
+                  <div style="font-family:'Noto Serif KR',serif; font-size:1.12rem; font-weight:800;">용안육 크림치즈 모찌</div>
+                  <div style="font-size:0.82rem; color:#6b5349; margin-top:2px;">사이다·레몬 냉침 과육 + 알룰로스 치즈</div>
+                </div>
+              </div>
+
+              <div class="washi-box" style="display:flex; align-items:center; gap:14px; cursor:pointer;" onclick="goToSlide(4)">
+                <div class="icon-circle amber anim-wiggle">🌰</div>
+                <div>
+                  <div style="font-size:0.78rem; color:var(--amber-herb); font-weight:700;">MENU 02 · 6인분</div>
+                  <div style="font-family:'Noto Serif KR',serif; font-size:1.12rem; font-weight:800;">쌍화탕 밤양갱 젤리 모찌</div>
+                  <div style="font-size:0.82rem; color:#6b5349; margin-top:2px;">꿀 졸임 쌍화 밤양갱 큐브 + 크림치즈</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Animated Icon Bar -->
+            <div style="display:flex; align-items:center; justify-content:space-around; background:#fff; border:1px solid rgba(197,155,39,0.35); border-radius:14px; padding:12px 16px;">
+              <div style="display:flex; align-items:center; gap:8px; font-size:0.88rem; font-weight:700;">
+                <span class="anim-spin-slow" style="font-size:1.35rem;">🌸</span> 일본 화과자(和菓子) 미학
+              </div>
+              <div style="display:flex; align-items:center; gap:8px; font-size:0.88rem; font-weight:700;">
+                <span class="anim-pulse" style="font-size:1.35rem;">🌿</span> 한약재의 현대적 재해석
+              </div>
+              <div style="display:flex; align-items:center; gap:8px; font-size:0.88rem; font-weight:700;">
+                <span class="anim-bounce" style="font-size:1.35rem;">👩‍🍳</span> 각 6인분(총 12개) 실습
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Generated Japanese Tea House Hero Visual -->
+          <div class="photo-card">
+            <span class="seal-tag">禮茶움 特選 · 예다움 특선</span>
+            <img src="images/hero_wagashi.png" alt="일본 벚꽃 다실과 한방 모찌 디저트" onerror="this.style.display='none'" />
+            <div class="photo-caption">
+              <h4><span class="anim-pulse">🏮</span> 일본 교토풍 벚꽃 다실(茶室) 플레이팅 예상도</h4>
+              <p>따스한 목재 트레이 위 반으로 가른 용안육 모찌와 쌍화탕 젤리 모찌가 벚꽃잎과 어우러진 비주얼 컨셉입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 2: WHY WE MADE THIS (CONCEPT & STORY) ==================== -->
+    <section class="slide" data-index="1">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <span class="jp-badge">企劃意図 · 기획 의도</span>
+            <h2 class="slide-title">왜 ‘일본풍 한약재 모찌’를 만들게 되었을까?</h2>
+          </div>
+          <span class="slide-subtitle-jp"><span class="anim-bounce">💡</span> 만들게 된 이유 & 핵심 아이디어</span>
+        </div>
+
+        <div class="grid-2" style="gap:24px;">
+          <!-- Left: 3 Core Reasons with Moving Icons -->
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <div class="washi-box pink-accent" style="display:flex; gap:16px; align-items:flex-start;">
+              <div class="icon-circle anim-bounce">🍵</div>
+              <div>
+                <h3 style="font-family:'Noto Serif KR',serif; font-size:1.15rem; color:var(--crimson-jp); margin-bottom:5px;">
+                  1. 일본의 ‘와가시(和菓子)’와 한약재(和漢)의 역사적 조우
+                </h3>
+                <p style="font-size:0.9rem; line-height:1.55;">
+                  일본은 예로부터 약초와 계절 식재료를 다도(茶道) 디저트인 <strong>‘화과자(다이후쿠·요칸)’</strong>로 발전시켜 왔습니다. 
+                  시각적 아름다움을 중시하는 일본 디저트 문화를 접목하면 한약재를 가장 트렌디하게 즐길 수 있습니다.
+                </p>
+              </div>
+            </div>
+
+            <div class="washi-box" style="display:flex; gap:16px; align-items:flex-start;">
+              <div class="icon-circle anim-wiggle">🫧</div>
+              <div>
+                <h3 style="font-family:'Noto Serif KR',serif; font-size:1.15rem; color:var(--wood-dark); margin-bottom:5px;">
+                  2. “한약재는 쓰고 질기다?” — 식감과 풍미의 반전 마법!
+                </h3>
+                <p style="font-size:0.9rem; line-height:1.55;">
+                  건조된 <strong>용안육</strong>을 그냥 쓰면 꾸덕하고 낯설지만, <strong>사이다+레몬즙</strong>에 불리면 리치처럼 <strong>탱글하고 상큼한 과육</strong>으로 변신합니다! 
+                  쌉싸름한 <strong>쌍화탕</strong>은 꿀과 맛밤, 젤라틴을 만나 <strong>고급 밤양갱 젤리</strong>로 재탄생합니다.
+                </p>
+              </div>
+            </div>
+
+            <div class="washi-box amber-accent" style="display:flex; gap:16px; align-items:flex-start;">
+              <div class="icon-circle amber anim-pulse">🧀</div>
+              <div>
+                <h3 style="font-family:'Noto Serif KR',serif; font-size:1.15rem; color:var(--amber-herb); margin-bottom:5px;">
+                  3. 크림치즈 & 알룰로스 소로 완성한 ‘단짠·고소 밸런스’
+                </h3>
+                <p style="font-size:0.9rem; line-height:1.55;">
+                  한약재의 깊은 향과 자칫 무거울 수 있는 단맛을 <strong>크림치즈 + 생크림 + 알룰로스</strong> 소가 부드럽게 감싸줍니다. 
+                  설탕 대신 알룰로스를 사용해 혈당과 칼로리 부담까지 낮춘 <strong>헬시플레저(Healthy Pleasure)</strong> 디저트입니다.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Generated Ingredients Flat-lay Photo & Herbal Efficacy Summary -->
+          <div style="display:flex; flex-direction:column; gap:14px; height:100%;">
+            <div class="photo-card" style="flex:1; min-height:240px;">
+              <span class="seal-tag">韓方 材料 · 엄선 약재</span>
+              <img src="images/herbs_ingredients.png" alt="용안육과 쌍화탕 약재, 밤, 레몬, 크림치즈" onerror="this.style.display='none'" />
+              <div class="photo-caption">
+                <h4><span class="anim-float">🌿</span> 예다움 한방 디저트 핵심 재료 구성</h4>
+                <p>건조 용안육, 쌍화탕(숙지황·계피·대추·작약 등), 맛밤, 상큼한 레몬, 부드러운 크림치즈의 조화</p>
+              </div>
+            </div>
+
+            <div class="grid-2-equal" style="gap:12px; flex:0;">
+              <div class="washi-box" style="padding:12px 15px; background:#fff7f9;">
+                <div style="font-weight:800; color:var(--crimson-jp); font-size:0.92rem; margin-bottom:4px;">
+                  <span class="anim-pulse">✨</span> 용안육(龍眼肉)의 효능
+                </div>
+                <p style="font-size:0.82rem; line-height:1.45;">
+                  심신 안정(불면·스트레스 완화), 기억력 증진, 기혈 보충에 탁월한 ‘용의 눈’을 닮은 열대 약재 과일
+                </p>
+              </div>
+              <div class="washi-box" style="padding:12px 15px; background:#fdf6ee;">
+                <div style="font-weight:800; color:var(--amber-herb); font-size:0.92rem; margin-bottom:4px;">
+                  <span class="anim-steam">🔥</span> 쌍화탕(雙和湯)의 효능
+                </div>
+                <p style="font-size:0.82rem; line-height:1.45;">
+                  음양(陰陽)의 기혈을 조화롭게 보충하여 만성 피로 회복, 체력 증진, 냉증 완화에 도움을 주는 명방
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 3: DESSERT 1 - LONGAN MOCHI SHOWCASE ==================== -->
+    <section class="slide" data-index="2">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <span class="jp-badge">第一菓 · 첫 번째 화과자</span>
+            <h2 class="slide-title">용안육 레몬크림 모찌 (龍眼肉 檸檬チーズ大福)</h2>
+          </div>
+          <span class="slide-subtitle-jp"><span class="anim-bounce">🍋</span> 상큼·탱글 후르츠 다이후쿠 스타일</span>
+        </div>
+
+        <div class="grid-2">
+          <!-- Left: Generated Food Photo of Longan Mochi -->
+          <div class="photo-card">
+            <span class="seal-tag">龍眼肉 大福 · 6인분</span>
+            <img src="images/longan_mochi.png" alt="용안육 크림치즈 모찌 단면 예상 사진" onerror="this.style.display='none'" />
+            <div class="photo-caption">
+              <h4><span class="anim-bounce">✨</span> 용안육 크림치즈 모찌 완성 & 단면 예상도</h4>
+              <p>쫀득하고 반투명한 하얀 찹쌀떡피 속, 새하얀 크림치즈 소가 보석처럼 투명하게 빛나는 황금빛 용안육을 감싼 모습</p>
+            </div>
+          </div>
+
+          <!-- Right: Layered Structure & Taste Profile -->
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <!-- Interactive Cross-section SVG Diagram -->
+            <div class="washi-box pink-accent" style="padding:18px 22px;">
+              <h3 style="font-family:'Noto Serif KR',serif; font-size:1.15rem; color:var(--crimson-jp); margin-bottom:10px; display:flex; align-items:center; gap:8px;">
+                <span class="anim-spin-slow">🌸</span> 3단 레이어 단면 구조 (Cross-Section)
+              </h3>
+              <div class="mochi-diagram">
+                <svg width="165" height="135" viewBox="0 0 180 145">
+                  <!-- Plate -->
+                  <ellipse cx="90" cy="130" rx="80" ry="10" fill="#4A332A"/>
+                  <!-- Outer Mochi Skin -->
+                  <path d="M22 125 C22 50, 158 50, 158 125 Z" fill="#FFF8FA" stroke="#E87A90" stroke-width="3"/>
+                  <!-- Middle Cream Cheese Filling -->
+                  <path d="M36 123 C36 64, 144 64, 144 123 Z" fill="#FFFDF2" stroke="#E6D296" stroke-width="2"/>
+                  <!-- Inner Plump Rehydrated Longan -->
+                  <ellipse cx="90" cy="100" rx="30" ry="22" fill="url(#longanGrad)" stroke="#C58B27" stroke-width="2"/>
+                  <ellipse cx="82" cy="93" rx="8" ry="4" fill="#FFF" opacity="0.65"/>
+                  <defs>
+                    <radialGradient id="longanGrad" cx="40%" cy="35%" r="65%">
+                      <stop offset="0%" stop-color="#FFEBA8"/>
+                      <stop offset="65%" stop-color="#E5A93C"/>
+                      <stop offset="100%" stop-color="#B8731A"/>
+                    </radialGradient>
+                  </defs>
+                </svg>
+                <div style="display:flex; flex-direction:column; gap:8px;">
+                  <div class="layer-tag"><span class="anim-pulse">⚪</span> <strong>겉피 (1층):</strong> 말랑·쫀득한 수제 찹쌀떡피 (규히)</div>
+                  <div class="layer-tag"><span class="anim-float">🧀</span> <strong>중간소 (2층):</strong> 크림치즈 + 생크림 + 알룰로스 무스</div>
+                  <div class="layer-tag"><span class="anim-bounce">🍋</span> <strong>중심코어 (3층):</strong> 사이다·레몬즙에 불린 탱글 용안육</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Why Cider + Lemon Juice Works (Food Science) -->
+            <div class="washi-box" style="padding:18px 22px;">
+              <h3 style="font-family:'Noto Serif KR',serif; font-size:1.12rem; color:var(--wood-dark); margin-bottom:8px; display:flex; align-items:center; gap:8px;">
+                <span class="anim-wiggle">🧪</span> 조리 과학 포인트: 왜 ‘사이다 + 레몬즙’에 불릴까요?
+              </h3>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; font-size:0.89rem; line-height:1.5;">
+                <li>
+                  <strong>① 탄산 기포의 미세 침투:</strong> 사이다의 탄산(CO₂)이 말라 있던 건조 용안육 섬유질 사이사이를 빠르게 파고들어 <strong>리치나 청포도처럼 탱글탱글한 식감</strong>으로 복원시킵니다.
+                </li>
+                <li>
+                  <strong>② 레몬 산미의 한약 향 중화:</strong> 건용안육 특유의 훈연·약재 향을 상큼한 레몬즙이 잡아주어, 한 입 베어 물었을 때 <strong>상큼한 과즙이 톡 터지는 후르츠 모찌</strong> 맛을 완성합니다.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Flavor Balance Meter -->
+            <div class="grid-3" style="gap:10px; flex:0;">
+              <div class="washi-box" style="padding:10px 12px; text-align:center;">
+                <div style="font-size:1.3rem;" class="anim-bounce">🫧</div>
+                <div style="font-size:0.8rem; font-weight:700; color:var(--crimson-jp);">식감 (탱글+쫀득)</div>
+                <div style="font-size:0.78rem; color:#6b5349;">★★★★★ (5.0)</div>
+              </div>
+              <div class="washi-box" style="padding:10px 12px; text-align:center;">
+                <div style="font-size:1.3rem;" class="anim-pulse">🍋</div>
+                <div style="font-size:0.8rem; font-weight:700; color:var(--crimson-jp);">상큼 & 고소함</div>
+                <div style="font-size:0.78rem; color:#6b5349;">★★★★★ (5.0)</div>
+              </div>
+              <div class="washi-box" style="padding:10px 12px; text-align:center;">
+                <div style="font-size:1.3rem;" class="anim-float">🌿</div>
+                <div style="font-size:0.8rem; font-weight:700; color:var(--crimson-jp);">한약 거부감 제로</div>
+                <div style="font-size:0.78rem; color:#6b5349;">입문자 강력 추천!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 4: DESSERT 1 - LONGAN MOCHI STEP-BY-STEP RECIPE ==================== -->
+    <section class="slide" data-index="3">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <span class="jp-badge">調理法 01 · 보강 레시피</span>
+            <h2 class="slide-title">용안육 모찌 상세 조리법 & 실패 없는 보강 팁 (6인분)</h2>
+          </div>
+          <span class="slide-subtitle-jp"><span class="anim-wiggle">👩‍🍳</span> 1인 1개씩 총 6개 완성 기준</span>
+        </div>
+
+        <div class="grid-4" style="flex:1;">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="step-num">STEP 01</span>
+              <span class="anim-bounce" style="font-size:1.75rem;">🍋</span>
+            </div>
+            <div class="step-title">용안육 사이다·레몬 냉침</div>
+            <p class="step-desc">
+              볼에 <strong>사이다 150ml + 레몬즙 2큰술(30ml)</strong>을 섞은 뒤, <strong>건조 용안육 60g(약 18~20알)</strong>을 넣고 최소 <strong>2~3시간(권장 반나절) 냉장고</strong>에서 불려 탱글하게 만듭니다.
+            </p>
+            <div style="margin-top:auto; background:#fff5f7; padding:8px 10px; border-radius:8px; font-size:0.8rem; color:var(--crimson-jp); font-weight:700;">
+              💡 씨 없이 말린 과육이라 통통한 꽃봉오리 모양으로 부풀어 오릅니다!
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="step-num">STEP 02</span>
+              <span class="anim-wiggle" style="font-size:1.75rem;">🧻</span>
+            </div>
+            <div class="step-title">[보강] 수분 제거 & 과육 겹치기</div>
+            <p class="step-desc">
+              불린 용안육을 체에 밭쳐 건진 뒤, <strong>키친타월로 겉면의 물기를 꼼꼼히 닦아줍니다.</strong> 모찌 1개당 통통한 용안육 <strong>2~3알을 동그랗게 뭉쳐</strong> 중심 코어를 만듭니다.
+            </p>
+            <div style="margin-top:auto; background:#fff5f7; padding:8px 10px; border-radius:8px; font-size:0.8rem; color:var(--crimson-jp); font-weight:700;">
+              ⚠️ 물기가 남아 있으면 크림치즈가 미끄러져 감싸지지 않아요! (핵심 보강)
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="step-num">STEP 03</span>
+              <span class="anim-float" style="font-size:1.75rem;">🧀</span>
+            </div>
+            <div class="step-title">크림치즈 소로 감싸 굳히기</div>
+            <p class="step-desc">
+              실온 <strong>크림치즈 120g + 단단히 휘핑한 생크림 35g + 알룰로스 1.5큰술</strong>을 섞은 소를 개당 약 <strong>25g씩</strong> 분할합니다. 종이호일(또는 랩) 위에서 용안육을 넣고 동그랗게 감싼 뒤 <strong>냉동실에 20분간 휴지</strong>합니다.
+            </p>
+            <div style="margin-top:auto; background:#fff5f7; padding:8px 10px; border-radius:8px; font-size:0.8rem; color:var(--crimson-jp); font-weight:700;">
+              💡 랩으로 사탕처럼 비틀어 냉동 20분 굳히면 떡피로 감쌀 때 모양이 완벽!
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="step-num">STEP 04</span>
+              <span class="anim-pulse" style="font-size:1.75rem;">🍡</span>
+            </div>
+            <div class="step-title">찹쌀떡피 포앙(성형) & 완성</div>
+            <p class="step-desc">
+              전분 가루를 깐 도마 위에 <strong>찹쌀떡피(1개당 약 40g)</strong>를 둥글넓적하게 펴고, 살짝 얼려 단단해진 <strong>용안육 크림치즈 볼</strong>을 올려 끝을 오므려 잘 여며주면 완성!
+            </p>
+            <div style="margin-top:auto; background:#fff5f7; padding:8px 10px; border-radius:8px; font-size:0.8rem; color:var(--crimson-jp); font-weight:700;">
+              🌸 이음매가 아래로 가도록 놓고 붓으로 여분의 전분을 털어주세요.
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Reinforced Recipe Banner -->
+        <div class="pro-tip-banner" style="margin-top:16px;">
+          <span class="anim-bounce" style="font-size:1.8rem;">🌟</span>
+          <div>
+            <strong style="color:var(--crimson-jp);">[예다움 레시피 보강 핵심 꿀팁]</strong> 
+            용안육을 불리고 남은 <strong>‘사이다+레몬+용안육 우러난 과즙’</strong>은 버리지 마세요! 얼음과 탄산수를 살짝 더 부어 모찌와 함께 내어주는 
+            <strong>‘일본풍 용안 레몬 소다(웰컴 티)’</strong>로 활용하면 발표·시식회 만족도가 200% 올라갑니다.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 5: DESSERT 2 - SSANGHWA JELLY MOCHI SHOWCASE ==================== -->
+    <section class="slide" data-index="4">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <span class="jp-badge">第二菓 · 두 번째 화과자</span>
+            <h2 class="slide-title">쌍화탕 밤양갱 젤리 모찌 (双和湯 栗羊羹チーズ大福)</h2>
+          </div>
+          <span class="slide-subtitle-jp"><span class="anim-steam">🌰</span> 깊고 진한 쿠리 요칸(밤양갱) 스타일</span>
+        </div>
+
+        <div class="grid-2">
+          <!-- Left: Generated Food Photo of Ssanghwa Jelly Mochi -->
+          <div class="photo-card">
+            <span class="seal-tag">双和 羊羹大福 · 6인분</span>
+            <img src="images/ssanghwa_mochi.png" alt="쌍화탕 밤 젤리 크림치즈 모찌 단면 예상 사진" onerror="this.style.display='none'" />
+            <div class="photo-caption">
+              <h4><span class="anim-pulse">🌰</span> 쌍화탕 젤리 모찌 완성 & 단면 예상도</h4>
+              <p>하얀 찹쌀떡피와 크림치즈 속에, 꿀로 졸인 쌍화탕과 노란 맛밤이 콕콕 박힌 호박색(Amber) 양갱 젤리 블럭이 들어간 비주얼</p>
+            </div>
+          </div>
+
+          <!-- Right: Layered Structure & Fusion Pairing Logic -->
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <!-- Cross-section SVG Diagram -->
+            <div class="washi-box amber-accent" style="padding:18px 22px;">
+              <h3 style="font-family:'Noto Serif KR',serif; font-size:1.15rem; color:var(--amber-herb); margin-bottom:10px; display:flex; align-items:center; gap:8px;">
+                <span class="anim-spin-slow">🍁</span> 3단 레이어 단면 구조 (Cross-Section)
+              </h3>
+              <div class="mochi-diagram">
+                <svg width="165" height="135" viewBox="0 0 180 145">
+                  <!-- Dark Slate Plate -->
+                  <ellipse cx="90" cy="130" rx="80" ry="10" fill="#232323"/>
+                  <!-- Outer Mochi Skin -->
+                  <path d="M22 125 C22 50, 158 50, 158 125 Z" fill="#FFF8FA" stroke="#C59B27" stroke-width="3"/>
+                  <!-- Middle Cream Cheese Filling -->
+                  <path d="M36 123 C36 64, 144 64, 144 123 Z" fill="#FFFDF2" stroke="#E6D296" stroke-width="2"/>
+                  <!-- Inner Ssanghwa Jelly Cube with Chestnut Pieces -->
+                  <rect x="64" y="78" width="52" height="40" rx="6" fill="url(#ssanghwaGrad)" stroke="#4A2511" stroke-width="2"/>
+                  <!-- Golden Chestnut chunks inside jelly cube -->
+                  <circle cx="77" cy="92" r="6" fill="#F4C44E"/>
+                  <circle cx="98" cy="89" r="5" fill="#F4C44E"/>
+                  <circle cx="88" cy="106" r="6.5" fill="#E8B339"/>
+                  <circle cx="104" cy="105" r="4.5" fill="#F4C44E"/>
+                  <defs>
+                    <linearGradient id="ssanghwaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#7A381C"/>
+                      <stop offset="100%" stop-color="#3E1908"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div style="display:flex; flex-direction:column; gap:8px;">
+                  <div class="layer-tag"><span class="anim-pulse">⚪</span> <strong>겉피 (1층):</strong> 쫄깃한 수제 찹쌀떡피 (규히)</div>
+                  <div class="layer-tag"><span class="anim-float">🧀</span> <strong>중간소 (2층):</strong> 부드러운 알룰로스 크림치즈 소</div>
+                  <div class="layer-tag"><span class="anim-wiggle">🟫</span> <strong>중심코어 (3층):</strong> 꿀 졸임 쌍화탕 + 맛밤 양갱 젤리 큐브</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Why Ssanghwa + Honey + Chestnut + Cream Cheese Works -->
+            <div class="washi-box" style="padding:18px 22px;">
+              <h3 style="font-family:'Noto Serif KR',serif; font-size:1.12rem; color:var(--wood-dark); margin-bottom:8px; display:flex; align-items:center; gap:8px;">
+                <span class="anim-bounce">🍯</span> 맛의 시너지: 쌍화탕이 ‘고급 밀크티 밤양갱’이 되는 원리
+              </h3>
+              <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; font-size:0.89rem; line-height:1.5;">
+                <li>
+                  <strong>① 쌍화탕 + 꿀 졸임 = 오리엔탈 시나몬 캐러멜:</strong> 쌍화탕 속 계피·대추·감초 향이 꿀과 함께 졸여지면서 <strong>차이티(Chai Tea) 시럽</strong>처럼 깊고 향긋한 풍미로 농축됩니다.
+                </li>
+                <li>
+                  <strong>② 맛밤 + 젤라틴 블럭 = 일본식 ‘쿠리 요칸(栗羊羹)’:</strong> 탱글한 젤리 속에 고소한 맛밤 다이스가 씹히고, 겉의 <strong>크림치즈</strong>가 한약의 쌉싸름함을 감싸 <strong>로열 밀크티 치즈케이크</strong> 같은 여운을 줍니다!
+                </li>
+              </ul>
+            </div>
+
+            <!-- Flavor Balance Meter -->
+            <div class="grid-3" style="gap:10px; flex:0;">
+              <div class="washi-box" style="padding:10px 12px; text-align:center;">
+                <div style="font-size:1.3rem;" class="anim-wiggle">🌰</div>
+                <div style="font-size:0.8rem; font-weight:700; color:var(--amber-herb);">밤양갱 젤리 식감</div>
+                <div style="font-size:0.78rem; color:#6b5349;">★★★★★ (5.0)</div>
+              </div>
+              <div class="washi-box" style="padding:10px 12px; text-align:center;">
+                <div style="font-size:1.3rem;" class="anim-steam">🍯</div>
+                <div style="font-size:0.8rem; font-weight:700; color:var(--amber-herb);">은은한 한방·계피향</div>
+                <div style="font-size:0.78rem; color:#6b5349;">★★★★★ (5.0)</div>
+              </div>
+              <div class="washi-box" style="padding:10px 12px; text-align:center;">
+                <div style="font-size:1.3rem;" class="anim-pulse">🍵</div>
+                <div style="font-size:0.8rem; font-weight:700; color:var(--amber-herb);">녹차·말차와 궁합</div>
+                <div style="font-size:0.78rem; color:#6b5349;">최고의 다과 페어링!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 6: DESSERT 2 - SSANGHWA JELLY MOCHI STEP-BY-STEP RECIPE ==================== -->
+    <section class="slide" data-index="5">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <span class="jp-badge">調理法 02 · 보강 레시피</span>
+            <h2 class="slide-title">쌍화탕 젤리 모찌 상세 조리법 & 보강 팁 (6인분)</h2>
+          </div>
+          <span class="slide-subtitle-jp"><span class="anim-steam">🍯</span> 양갱 젤리 블럭 성형 완벽 가이드</span>
+        </div>
+
+        <div class="grid-4" style="flex:1;">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="step-num">STEP 01</span>
+              <span class="anim-steam" style="font-size:1.75rem;">🍯</span>
+            </div>
+            <div class="step-title">쌍화탕 + 꿀 농축 졸이기</div>
+            <p class="step-desc">
+              냄비에 <strong>쌍화탕 2병(200ml) + 꿀 3큰술(45g)</strong>을 넣고 중약불에서 약 5~7분간 끓여 <strong>150ml 정도가 되도록 살짝 걸쭉하게</strong> 졸여 풍미를 응축시킵니다.
+            </p>
+            <div style="margin-top:auto; background:#fdf6ee; padding:8px 10px; border-radius:8px; font-size:0.8rem; color:var(--amber-herb); font-weight:700;">
+              💡 너무 졸이면 양이 부족해지니 약 3/4 분량(150ml)까지만 졸여주세요!
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="step-num">STEP 02</span>
+              <span class="anim-bounce" style="font-size:1.75rem;">🧊</span>
+            </div>
+            <div class="step-title">[보강] 젤라틴 용해 & 맛밤 블럭</div>
+            <p class="step-desc">
+              찬물에 10분간 불려 물기를 꼭 짠 <strong>판젤라틴 4장(약 8g, 또는 가루젤라틴 8g)</strong>을 <strong>불을 끄고 한 김 식힌(50~60℃) 쌍화탕액</strong>에 넣어 녹입니다. 사각 용기에 랩을 깔고 <strong>잘게 썬 맛밤(80g)</strong>을 채운 뒤 액을 부어 <strong>냉장 1시간 굳힙니다.</strong>
+            </p>
+            <div style="margin-top:auto; background:#fdf6ee; padding:8px 10px; border-radius:8px; font-size:0.8rem; color:var(--crimson-jp); font-weight:700;">
+              ⚠️ 팔팔 끓는 액에 젤라틴을 넣으면 응고력이 깨져요! 꼭 한 김 식힌 뒤 투입!
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="step-num">STEP 03</span>
+              <span class="anim-wiggle" style="font-size:1.75rem;">🔪</span>
+            </div>
+            <div class="step-title">양갱 젤리 큐브 커팅 & 치즈 포앙</div>
+            <p class="step-desc">
+              탱글하고 단단하게 굳은 쌍화 밤양갱 젤리를 꺼내어 <strong>가로·세로 약 2cm × 2cm 정육면체 블럭(6~8조각)</strong>으로 자릅니다. <strong>크림치즈 소(개당 25g)</strong>로 젤리 블럭을 감싸 동그랗게 만든 뒤 <strong>냉동실 15분 휴지</strong>합니다.
+            </p>
+            <div style="margin-top:auto; background:#fdf6ee; padding:8px 10px; border-radius:8px; font-size:0.8rem; color:var(--amber-herb); font-weight:700;">
+              💡 정육면체로 잘라야 모찌를 반으로 갈랐을 때 각진 보석 단면이 나와요!
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="step-num">STEP 04</span>
+              <span class="anim-pulse" style="font-size:1.75rem;">🍡</span>
+            </div>
+            <div class="step-title">찹쌀떡피 감싸기 & 고명 장식</div>
+            <p class="step-desc">
+              <strong>찹쌀떡피(개당 40g)</strong>를 펴서 크림치즈로 감싼 쌍화 젤리 볼을 넣고 동그랗게 감쌉니다. 용안육 모찌와 구별되도록 모찌 윗면에 <strong>맛밤 조각이나 금박/콩고물</strong>을 살짝 올리면 완성!
+            </p>
+            <div style="margin-top:auto; background:#fdf6ee; padding:8px 10px; border-radius:8px; font-size:0.8rem; color:var(--amber-herb); font-weight:700;">
+              🌰 단면을 자를 땐 실(명주실/치실)을 교차해 자르면 뭉개지지 않고 깔끔!
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Reinforced Recipe Banner -->
+        <div class="pro-tip-banner" style="margin-top:16px;">
+          <span class="anim-pulse" style="font-size:1.8rem;">🍮</span>
+          <div>
+            <strong style="color:var(--crimson-jp);">[예다움 레시피 보강 핵심 꿀팁]</strong> 
+            일반 젤리보다 <strong>양갱(羊羹)처럼 쫀득하고 묵직한 식감</strong>을 내려면 쌍화탕 액체 150ml 기준 <strong>판젤라틴 4장(8g)</strong>이 황금 비율입니다! 
+            (채식/비건이나 상온 보관이 길어질 경우에는 젤라틴 대신 <strong>한천가루 4g</strong>을 넣고 함께 끓이면 실온에서도 절대 녹지 않는 정통 밤양갱 블럭이 됩니다.)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 7: SHARED BASE RECIPES (CREAM CHEESE & MOCHI SKIN) ==================== -->
+    <section class="slide" data-index="6">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <span class="jp-badge">共通 秘法 · 공통 베이스 레시피</span>
+            <h2 class="slide-title">두 모찌에 모두 쓰는 「만능 크림치즈 소 & 말랑 찹쌀떡피」</h2>
+          </div>
+          <span class="slide-subtitle-jp"><span class="anim-bounce">🥣</span> 총 12개분(6인분×2종) 한 번에 만들기</span>
+        </div>
+
+        <div class="grid-2-equal">
+          <!-- Left Card: Reinforced Cream Cheese Filling Recipe -->
+          <div class="washi-box pink-accent" style="display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                <div class="icon-circle anim-float">🧀</div>
+                <div>
+                  <span style="font-size:0.8rem; color:var(--crimson-jp); font-weight:700;">BASE RECIPE 01 · 총 12개 분량 (약 320g)</span>
+                  <h3 style="font-family:'Noto Serif KR',serif; font-size:1.3rem;">알룰로스 크림치즈 프로마주 소</h3>
+                </div>
+              </div>
+
+              <div style="background:#fff; border:1px solid var(--sakura-pink); border-radius:12px; padding:12px 16px; margin-bottom:14px;">
+                <div style="font-weight:800; color:var(--wood-dark); margin-bottom:6px; font-size:0.9rem;">📌 황금 배합비 (총 12개 = 용안육 6개 + 쌍화 6개)</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:0.86rem;">
+                  <div>• <strong>크림치즈 (실온):</strong> 250g</div>
+                  <div>• <strong>생크림 (무가당):</strong> 70g</div>
+                  <div>• <strong>알룰로스:</strong> 3큰술 (약 40g)</div>
+                  <div>• <strong>레몬즙 (선택):</strong> 1작은술</div>
+                </div>
+              </div>
+
+              <h4 style="font-size:0.95rem; color:var(--crimson-jp); margin-bottom:8px;">🛠️ 절대 묽어지지 않는 보강 조리 순서</h4>
+              <ol style="padding-left:18px; font-size:0.88rem; line-height:1.6; display:flex; flex-direction:column; gap:6px;">
+                <li><strong>크림치즈 물기 제거 & 풀기:</strong> 실온에 30분 둔 크림치즈(250g)를 주걱으로 부드럽게 풀어줍니다.</li>
+                <li><strong>생크림 별도 휘핑 (보강 핵심!):</strong> 액체 생크림을 그냥 부으면 소가 너무 묽어져서 손으로 빚을 수 없습니다! <strong>차가운 생크림(70g)에 알룰로스(3큰술)를 넣고 거품기로 뿔이 단단히 설 때까지 휘핑</strong>해 주세요.</li>
+                <li><strong>혼합 및 냉장 휴지:</strong> 풀어둔 크림치즈에 휘핑한 생크림을 섞은 뒤, <strong>냉장고에 30분 넣어 단단하게 굳히면</strong> 아이스크림 스쿱처럼 깔끔하게 성형됩니다!</li>
+              </ol>
+            </div>
+
+            <div style="background:#fff0f3; padding:10px 14px; border-radius:10px; font-size:0.82rem; color:var(--crimson-dark); font-weight:700; margin-top:10px;">
+              ✨ <strong>비상시 보강 팁:</strong> 만약 액상 알룰로스를 많이 넣어 소가 질어졌다면, <strong>전지분유(또는 탈지분유/코코넛파우더) 1~2큰술</strong>을 섞으면 수분을 흡수해 즉시 쫀쫀해집니다!
+            </div>
+          </div>
+
+          <!-- Right Card: Reinforced Microwave Gyuhi Mochi Skin Recipe -->
+          <div class="washi-box amber-accent" style="display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                <div class="icon-circle amber anim-bounce">🍡</div>
+                <div>
+                  <span style="font-size:0.8rem; color:var(--amber-herb); font-weight:700;">BASE RECIPE 02 · 총 12개 분량 (약 500g)</span>
+                  <h3 style="font-family:'Noto Serif KR',serif; font-size:1.3rem;">일본식 구비(求肥·규히) 찹쌀떡피</h3>
+                </div>
+              </div>
+
+              <div style="background:#fff; border:1px solid rgba(197,155,39,0.45); border-radius:12px; padding:12px 16px; margin-bottom:14px;">
+                <div style="font-weight:800; color:var(--wood-dark); margin-bottom:6px; font-size:0.9rem;">📌 황금 배합비 (전자레인지 3분 완성!)</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:0.86rem;">
+                  <div>• <strong>찹쌀가루 (건식/떡피용):</strong> 200g</div>
+                  <div>• <strong>미지근한 물:</strong> 260ml</div>
+                  <div>• <strong>설탕 (또는 알룰로스):</strong> 40g</div>
+                  <div>• <strong>물엿 (굳음 방지 필수!):</strong> 1.5큰술</div>
+                  <div>• <strong>소금:</strong> 두 꼬집 (2g)</div>
+                  <div>• <strong>옥수수/감자전분 (덧가루):</strong> 넉넉히</div>
+                </div>
+              </div>
+
+              <h4 style="font-size:0.95rem; color:var(--amber-herb); margin-bottom:8px;">🛠️ 찢어지지 않는 쫄깃한 떡피 조리 순서</h4>
+              <ol style="padding-left:18px; font-size:0.88rem; line-height:1.6; display:flex; flex-direction:column; gap:6px;">
+                <li><strong>반죽 섞기:</strong> 내열 유리볼에 찹쌀가루 200g, 설탕 40g, 소금 2g, 미지근한 물 260ml를 넣고 거품기로 뭉침 없이 푼 뒤 랩을 씌워 포크로 구멍 3~4개를 뚫습니다.</li>
+                <li><strong>전자레인지 조리 (1분 30초 + 1분):</strong> 전자레인지에 <strong>1분 30초</strong> 돌린 후 꺼내어 주걱으로 골고루 치대고, 다시 <strong>1분</strong> 더 돌려 반투명한 떡 상태로 익힙니다.</li>
+                <li><strong>물엿 코팅 & 치대기 (보강 핵심!):</strong> 떡이 뜨거울 때 <strong>물엿 1.5큰술</strong>을 넣고 주걱으로 힘껏 치대면 윤기가 흐르고 냉장고에 넣어도 딱딱하게 굳지 않습니다!</li>
+              </ol>
+            </div>
+
+            <div style="background:#fbf2e6; padding:10px 14px; border-radius:10px; font-size:0.82rem; color:var(--wood-dark); font-weight:700; margin-top:10px;">
+              ⚡ <strong>동아리 시간 단축 꿀팁:</strong> 조리 시간이 촉박할 때는 시중 <strong>‘모찌용 찹쌀떡피(시판 냉동 떡피 12장)’</strong>를 구매해 해동 후 바로 감싸면 조리 시간을 25분 단축할 수 있습니다!
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 8: 6 SERVINGS SHOPPING LIST & QUANTITIES ==================== -->
+    <section class="slide" data-index="7">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <div class="slide-title-group">
+            <span class="jp-badge">材料 目錄 · 장보기 & 계량 총정리</span>
+            <h2 class="slide-title">각 6인분(총 12개) 재료 정밀 계량표 & 장보기 체크리스트</h2>
+          </div>
+          <span class="slide-subtitle-jp"><span class="anim-bounce">🛒</span> 클릭하면 체크되는 스마트 장보기 표</span>
+        </div>
+
+        <div class="grid-2" style="gap:22px; align-items:stretch;">
+          <!-- Left: Exact Measurement Table for 6 Servings Each -->
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <h3 style="font-family:'Noto Serif KR',serif; font-size:1.1rem; color:var(--wood-dark); display:flex; align-items:center; gap:8px;">
+              <span class="anim-pulse">⚖️</span> [조리용] 메뉴별 6인분(6개) + 여유분 실사용 계량표
+            </h3>
+            <table class="jp-table">
+              <thead>
+                <tr>
+                  <th>구분</th>
+                  <th>재료명</th>
+                  <th>실사용량 (각 6인분)</th>
+                  <th>역할 및 조리 포인트</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="3"><strong>🍋 용안육 모찌<br/>(6개분)</strong></td>
+                  <td>건조 용안육 (한약재)</td>
+                  <td><span class="badge-qty">60g (약 18~20알)</span></td>
+                  <td>모찌 1개당 통통한 과육 3알씩 투입</td>
+                </tr>
+                <tr>
+                  <td>사이다 (칠성/스프라이트)</td>
+                  <td><span class="badge-qty">150ml (종이컵 1컵)</span></td>
+                  <td>탄산 삼투압으로 탱글한 식감 복원</td>
+                </tr>
+                <tr>
+                  <td>레몬즙</td>
+                  <td><span class="badge-qty">2큰술 (30ml)</span></td>
+                  <td>상큼한 산미 부여 & 한약재 향 중화</td>
+                </tr>
+                <tr>
+                  <td rowspan="4"><strong>🌰 쌍화탕 모찌<br/>(6개분)</strong></td>
+                  <td>쌍화탕 (약국/편의점용)</td>
+                  <td><span class="badge-qty">2병 (200ml)</span></td>
+                  <td>끓여서 약 150ml로 걸쭉하게 농축</td>
+                </tr>
+                <tr>
+                  <td>꿀 (아카시아/잡화꿀)</td>
+                  <td><span class="badge-qty">3큰술 (45g)</span></td>
+                  <td>쌍화탕 쓴맛 중화 & 윤기·점도 부여</td>
+                </tr>
+                <tr>
+                  <td>시판 맛밤</td>
+                  <td><span class="badge-qty">1봉지 (60~80g)</span></td>
+                  <td>잘게 다져 양갱 젤리 블럭 속에 투입</td>
+                </tr>
+                <tr>
+                  <td>판젤라틴 (또는 가루)</td>
+                  <td><span class="badge-qty">4장 (8g)</span></td>
+                  <td>단단한 양갱 스타일 젤리 블럭 응고</td>
+                </tr>
+                <tr>
+                  <td rowspan="3"><strong>🧀 공통 치즈소<br/>(총 12개분)</strong></td>
+                  <td>크림치즈</td>
+                  <td><span class="badge-qty">250g</span></td>
+                  <td>개당 약 25g씩 포앙 (실온 해동 필수)</td>
+                </tr>
+                <tr>
+                  <td>동물성 생크림</td>
+                  <td><span class="badge-qty">70ml</span></td>
+                  <td>단단하게 휘핑하여 크림치즈와 혼합</td>
+                </tr>
+                <tr>
+                  <td>알룰로스 (분말/액상)</td>
+                  <td><span class="badge-qty">3큰술 (40g)</span></td>
+                  <td>건강한 단맛 (생크림 휘핑 시 투입)</td>
+                </tr>
+                <tr>
+                  <td rowspan="2"><strong>🍡 공통 떡피<br/>(총 12개분)</strong></td>
+                  <td>찹쌀가루 + 물 + 설탕 + 물엿</td>
+                  <td><span class="badge-qty">찹쌀가루 200g 기준</span></td>
+                  <td>완성 떡피 약 480g (개당 40g씩 분할)</td>
+                </tr>
+                <tr>
+                  <td>옥수수전분 (또는 감자전분)</td>
+                  <td><span class="badge-qty">100g (덧가루용)</span></td>
+                  <td>손과 도마에 달라붙지 않게 코팅</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Right: Interactive Shopping Checklist (How much to buy at the store) -->
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div class="washi-box pink-accent" style="flex:1; display:flex; flex-direction:column; justify-content:space-between;">
+              <div>
+                <h3 style="font-family:'Noto Serif KR',serif; font-size:1.1rem; color:var(--crimson-jp); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+                  <span class="anim-bounce">🛍️</span> [마트/약재상 구매용] 실제 얼마큼 사야 할까요?
+                </h3>
+                <p style="font-size:0.82rem; color:#6b5349; margin-bottom:10px;">
+                  시중 최소 판매 규격 기준으로 정리한 <strong>‘예다움 동아리 장보기 리스트’</strong>입니다. 항목을 클릭해 체크해 보세요!
+                </p>
+
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; background:#fff; padding:10px 12px; border-radius:12px; border:1px solid var(--sakura-pink);">
+                  <label class="check-item" onclick="toggleCheck(this)">
+                    <input type="checkbox" /> <span><strong>건조 용안육:</strong> 100g 소포장 1봉</span>
+                  </label>
+                  <label class="check-item" onclick="toggleCheck(this)">
+                    <input type="checkbox" /> <span><strong>쌍화탕:</strong> 100ml × 2병 (여유 3병)</span>
+                  </label>
+                  <label class="check-item" onclick="toggleCheck(this)">
+                    <input type="checkbox" /> <span><strong>시판 맛밤:</strong> 1~2봉 (80g 규격)</span>
+                  </label>
+                  <label class="check-item" onclick="toggleCheck(this)">
+                    <input type="checkbox" /> <span><strong>사이다:</strong> 250ml 캔 1개</span>
+                  </label>
+                  <label class="check-item" onclick="toggleCheck(this)">
+                    <input type="checkbox" /> <span><strong>레몬즙:</strong> 소형 1병 (또는 생레몬 1개)</span>
+                  </label>
+                  <label class="check-item" onclick="toggleCheck(this)">
+                    <input type="checkbox" /> <span><strong>판젤라틴:</strong> 1소팩 (10장입 중 4장)</span>
+                  </label>
+                  <label class="check-item" onclick="toggleCheck(this)">
+                    <input type="checkbox" /> <span><strong>크림치즈:</strong> 200g~250g 1통 (필라델피아 등)</span>
+                  </label>
+                  <label class="check-item" onclick="toggleCheck(this)">
+                    <input type="checkbox" /> <span><strong>생크림:</strong> 200ml 소형 1팩</span>
+                  </label>
+                  <label class="check-item" onclick="toggleCheck(this)">
+                    <input type="checkbox" /> <span><strong>알룰로스 & 꿀:</strong> 각 소형 1병</span>
+                  </label>
+                  <label class="check-item" onclick="toggleCheck(this)">
+                    <input type="checkbox" /> <span><strong>찹쌀가루(또는 시판 모찌피):</strong> 1봉</span>
+                  </label>
+                  <label class="check-item" onclick="toggleCheck(this)">
+                    <input type="checkbox" /> <span><strong>전분가루 & 물엿:</strong> 각 소형 1개</span>
+                  </label>
+                  <label class="check-item" onclick="toggleCheck(this)">
+                    <input type="checkbox" /> <span><strong>도구:</strong> 종이호일, 랩, 사각용기, 모찌유산지</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Closing Box -->
+              <div style="margin-top:12px; background:linear-gradient(135deg, #2c1e18, #4a332a); color:#fff; border-radius:14px; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; border:1.5px solid var(--gold-jp);">
+                <div>
+                  <div style="color:var(--gold-light); font-family:'Shippori Mincho',serif; font-size:0.82rem;">ご清聴ありがとうございました · 발표를 들어주셔서 감사합니다</div>
+                  <div style="font-family:'Noto Serif KR',serif; font-size:1.15rem; font-weight:800; margin-top:2px;">
+                    동아리 「예다움」 — 한약재와 일본 화과자의 달콤한 만남 🌸
+                  </div>
+                </div>
+                <button class="sakura-boost-btn" style="background:var(--crimson-jp); border-color:var(--gold-light); font-size:0.88rem; padding:8px 16px;" onclick="burstSakura()">
+                  <span class="anim-bounce">🎊</span> 피날레 벚꽃 축포
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Slide Navigation Bar -->
+  <div class="bottom-bar">
+    <button class="ctrl-btn" onclick="prevSlide()" title="이전 슬라이드 (←)">❮</button>
+    <div class="slide-dots" id="slide-dots"></div>
+    <span class="slide-counter" id="slide-counter">1 / 8</span>
+    <button class="ctrl-btn" onclick="nextSlide()" title="다음 슬라이드 (→)">❯</button>
+  </div>
+
+  <!-- Presentation & Falling Sakura Engine Script -->
+  <script>
+    // ================= 1. SLIDE NAVIGATION ENGINE =================
+    const slides = document.querySelectorAll('.slide');
+    const navTabs = document.querySelectorAll('.nav-tab');
+    const dotsContainer = document.getElementById('slide-dots');
+    const counterEl = document.getElementById('slide-counter');
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    // Initialize Dots
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.onclick = () => goToSlide(i);
+      dotsContainer.appendChild(dot);
+    }
+    const dots = document.querySelectorAll('.dot');
+
+    function goToSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentSlide = index;
+
+      slides.forEach((s, i) => {
+        s.classList.toggle('active', i === currentSlide);
+      });
+      navTabs.forEach((t, i) => {
+        t.classList.toggle('active', i === currentSlide);
+      });
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === currentSlide);
+      });
+      counterEl.textContent = `${currentSlide + 1} / ${totalSlides}`;
+
+      // Gentle burst of sakura petals on slide transition
+      spawnBurstPetals(12);
+    }
+
+    function nextSlide() {
+      goToSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentSlide - 1);
+    }
+
+    // Keyboard Shortcuts
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSlide();
+      }
+    });
+
+    // Checklist helper
+    function toggleCheck(labelEl) {
+      setTimeout(() => {
+        const input = labelEl.querySelector('input');
+        labelEl.classList.toggle('checked', input.checked);
+      }, 10);
+    }
+
+    // ================= 2. SAKURA PETAL PHYSICS ENGINE =================
+    const canvas = document.getElementById('sakura-canvas');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    const petalColors = [
+      'rgba(255, 183, 197, 0.88)',
+      'rgba(255, 209, 220, 0.92)',
+      'rgba(255, 160, 180, 0.82)',
+      'rgba(255, 235, 240, 0.90)',
+      'rgba(242, 138, 160, 0.78)'
+    ];
+
+    class SakuraPetal {
+      constructor(isBurst = false) {
+        this.reset(true, isBurst);
+      }
+
+      reset(initial = false, isBurst = false) {
+        this.x = initial ? Math.random() * width : (Math.random() * (width + 200) - 100);
+        this.y = initial ? Math.random() * height : -30 - Math.random() * 80;
+        if (isBurst) {
+          this.x = Math.random() * width;
+          this.y = -10 - Math.random() * 120;
+        }
+        this.size = 7 + Math.random() * 10;
+        this.speedY = 0.8 + Math.random() * 1.6 + (isBurst ? 1.5 : 0);
+        this.speedX = -0.6 + Math.random() * 1.8;
+        this.angle = Math.random() * Math.PI * 2;
+        this.spin = (Math.random() - 0.5) * 0.04;
+        this.flip = Math.random() * Math.PI;
+        this.flipSpeed = 0.015 + Math.random() * 0.03;
+        this.swayAmp = 0.6 + Math.random() * 1.4;
+        this.swayFreq = 0.01 + Math.random() * 0.02;
+        this.color = petalColors[Math.floor(Math.random() * petalColors.length)];
+        this.isBurst = isBurst;
+      }
+
+      update(tick) {
+        this.y += this.speedY;
+        this.x += this.speedX + Math.sin(tick * this.swayFreq + this.angle) * this.swayAmp;
+        this.angle += this.spin;
+        this.flip += this.flipSpeed;
+
+        if (this.y > height + 30 || this.x > width + 100 || this.x < -100) {
+          if (this.isBurst && petals.length > BASE_PETAL_COUNT) {
+            return false; // Remove extra burst petals once they fall off screen
+          }
+          this.reset(false, false);
+        }
+        return true;
+      }
+
+      draw(ctx) {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+        ctx.scale(1, Math.max(0.25, Math.abs(Math.cos(this.flip))));
+
+        // Draw authentic notched Japanese Sakura Petal shape
+        const s = this.size;
+        ctx.beginPath();
+        ctx.moveTo(0, s * 0.7);
+        ctx.bezierCurveTo(-s * 0.9, s * 0.2, -s * 0.8, -s * 0.8, -s * 0.2, -s);
+        ctx.lineTo(0, -s * 0.72); // Characteristic notch at top of sakura petal
+        ctx.lineTo(s * 0.2, -s);
+        ctx.bezierCurveTo(s * 0.8, -s * 0.8, s * 0.9, s * 0.2, 0, s * 0.7);
+        ctx.closePath();
+
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    const BASE_PETAL_COUNT = 58;
+    let petals = [];
+    for (let i = 0; i < BASE_PETAL_COUNT; i++) {
+      petals.push(new SakuraPetal(false));
+    }
+
+    function spawnBurstPetals(count = 40) {
+      for (let i = 0; i < count; i++) {
+        petals.push(new SakuraPetal(true));
+      }
+    }
+
+    function burstSakura() {
+      spawnBurstPetals(65);
+    }
+
+    // Spawn a few petals where mouse clicks
+    window.addEventListener('click', (e) => {
+      for (let i = 0; i < 5; i++) {
+        const p = new SakuraPetal(true);
+        p.x = e.clientX + (Math.random() - 0.5) * 30;
+        p.y = e.clientY + (Math.random() - 0.5) * 30;
+        petals.push(p);
+      }
+    });
+
+    let tick = 0;
+    function animateSakura() {
+      ctx.clearRect(0, 0, width, height);
+      tick++;
+      petals = petals.filter((p) => {
+        const alive = p.update(tick);
+        if (alive) p.draw(ctx);
+        return alive;
+      });
+      requestAnimationFrame(animateSakura);
+    }
+    animateSakura();
+  </script>
+</body>
+</html>
